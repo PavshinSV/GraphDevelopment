@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,14 +25,20 @@ namespace Graph_Development
         {
             InitializeComponent();
 
-            Button myButton = new Button();
-            myButton.Width = 100;
-            myButton.Height = 30;
-            myButton.Content = "Кнопка";
-            layoutGrid.Children.Add(myButton);
-            myButton.HorizontalAlignment = HorizontalAlignment.Center;
-            myButton.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
         }
-        
+
+        private void Button_Reg_Click(object sender, RoutedEventArgs e)
+        {
+            string login = TextBoxLogin.Text.Trim();
+            string pass = TextBoxPassword.Password.Trim();
+            string passRepeat = TextBoxPasswordRepeat.Password.Trim();
+            string email = TextBoxEmail.Text.Trim().ToLower();
+
+            if (login.Length < 5)
+            {
+                TextBoxLogin.ToolTip = "Errrrrror!!!";
+                TextBoxLogin.Background = Brushes.DarkRed;
+            }
+        }
     }
 }
